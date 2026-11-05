@@ -1,0 +1,74 @@
+{
+  "name": "jsonmedic",
+  "version": "1.0.0",
+  "description": "Repair broken JSON from LLMs and humans, and get a list of every change made: markdown fences, comments, Python literals, quotes, commas, truncation and more.",
+  "license": "MIT",
+  "author": "Noman Ahmed",
+  "homepage": "https://aijsonmedic.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nomanahmed6664/jsonmedic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nomanahmed6664/jsonmedic/issues"
+  },
+  "keywords": [
+    "json",
+    "json-repair",
+    "repair",
+    "fix",
+    "parser",
+    "llm",
+    "ai",
+    "chatgpt",
+    "openai",
+    "claude",
+    "truncated",
+    "trailing-comma",
+    "ndjson"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "jsonmedic": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "tsup --silent && vitest run",
+    "prepublishOnly": "npm run typecheck && npm test"
+  },
+  "dependencies": {
+    "jsonrepair": "^3.15.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsup": "^9.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^5.1.0"
+  }
+}
